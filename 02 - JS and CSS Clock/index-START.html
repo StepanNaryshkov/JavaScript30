@@ -72,6 +72,8 @@
 
   <script>
     var handHour = document.querySelector(".hour-hand");
+    var handMin = document.querySelector(".min-hand");
+    var handSec = document.querySelector(".second-hand");
 
     var now = new Date();
     var hours = null;
@@ -80,6 +82,8 @@
 
     function setTime() {
       handHour.style.transform = 'rotate(' + hours * 30 + 'deg)';
+      handMin.style.transform = 'rotate(' + minutes * 6 + 'deg)';
+      handSec.style.transform = 'rotate(' + seconds * 6 + 'deg)';
     }
     function result() {
       now = new Date();
