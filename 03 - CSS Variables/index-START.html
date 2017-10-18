@@ -21,10 +21,11 @@
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
-
-    /*
-      misc styles, nothing to do with CSS variables
-    */
+    html {
+      --blur: 10px;
+      --spacing: 10px;
+      --base: #fff;
+    }
 
     body {
       text-align: center;
@@ -42,9 +43,32 @@
     input {
       width:100px;
     }
+
+    img {
+      filter: blur(var(--blur));
+      padding: var(--spacing);
+      background-color: var(--base);
+    }
+
   </style>
 
   <script>
+    const root = document.documentElement;
+    const blur = document.getElementById('blur');
+    const spacing = document.getElementById('spacing');
+    const base = document.getElementById('base');
+
+    blur.addEventListener('input', function () {
+      root.style.setProperty('--blur', blur.value + 'px');
+    })
+
+    spacing.addEventListener('input', function () {
+      root.style.setProperty('--spacing', spacing.value + 'px');
+    })
+
+    base.addEventListener('input', function () {
+      root.style.setProperty('--base', base.value);
+    })
   </script>
 
 </body>
